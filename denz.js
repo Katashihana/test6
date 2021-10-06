@@ -5042,36 +5042,6 @@ case 'spotify':
                     }
                     reply(ini_txt)
                     break
-case 'ytplaylist':
-                        if (args.length == 0) return reply(`Example: ${prefix + command} katashi hana`)
-                        query = args.join(" ")
-                        res = await axios.get(`https://api.zeks.me/api/ytplaylist?apikey=CpGSLymOQy9KfTKgQZr9eDSYqqR&query=${query}`)
-                        ttt = res.result
-                        var tekss = `*「 YOUTUBE PLAYLIST 」*\n\n*Hasil Pencarian : ${data.body}*\n\n`
-                        for(let i = 0; i < ttt.length; i++) {
-                            tekss += `*Nama* : ${ttt[i].title}\n*Jumlah video*: ${ttt[i].video_count}\n*Channel*: ${ttt[i].uploader.username}\n*Link*: ${ttt[i].url}\n\n`
-                        }
-                        await denz.sendFileFromUrl(from, ttt[0].thumbnail, 'axis.jpg', tekss, message)
-                    } catch(e) {
-                        reply(`Maaf pencarian ${body} tidak ditemukan`)
-                    }
-                    break
-case 'happymod':
-                    try {
-                        if(isLimit(data.sender)) return data.reply(mess.limit)
-                        if(data.body == "") return data.reply(`Kirim perintah *${data.prefix}happymod [ apk ]*\nContoh : ${data.prefix}happymod pubg`)
-                        data.reply(mess.wait)
-                        res = await axios.get(`https://api.zeks.me/api/happymod?apikey=CpGSLymOQy9KfTKgQZr9eDSYqqR&query=${query}`)
-                        ttt = res.result
-                        var teks = `*「 HAPPYMOD 」*\n\n*Hasil Pencarian : ${data.body}*\n\n`
-                        for(let i = 0; i < ttt.length; i++) {
-                            teks += `*Title* : ${ttt[i].title}\n*Rate*: ${ttt[i].rating}\n*Link*: ${ttt[i].url}\n\n`
-                        }
-                        await denz.sendFileFromUrl(from, ttt[0].thumb, 'p.jpg', teks, message)
-                    } catch {
-                        reply(`Maaf aplikasi MOD ${body} tidak ditemukan`)
-                    }
-                    break
                 case 'jooxplay':
                     if (args.length == 0) return reply(`Example: ${prefix + command} Melukis Senja`)
                     query = args.join(" ")
@@ -5088,21 +5058,6 @@ case 'happymod':
                     get_audio = await getBuffer(get_result.audio[0].link)
                     await denz.sendMessage(from, get_audio, audio, { mimetype: 'audio/mp4', filename: `${get_result.info.song}.mp3`, quoted: mek })
                     break
-case 'ytchannel':
-                        if(data.body == "") return data.reply(`Kirim perintah *${data.prefix}ytchannel [ channel ]*\nContoh : ${prefix}ytchannel jessnolimit`)
-                        reply(mess.wait)
-                        res = await axios.get(`https://api.zeks.me/api/ytchannel?apikey=CpGSLymOQy9KfTKgQZr9eDSYqqR&q=${body}`)
-                        ttt = res.result
-                        var eks = `*「 YOUTUBE CHANNEL 」*\n\n*Hasil Pencarian : ${body}*\n\n`
-                        for(let i = 0; i < ttt.length; i++) {
-                            eks += `*Nama* : ${ttt[i].title}\n*Deskripsi*: ${ttt[i].description}\n*Verified* : ${ttt[i].verified}\n*Jumlah video*: ${ttt[i].video_count}\n*Subcriber*: ${ttt[i].subscriber_count}\n*Link*: ${ttt[i].url}\n\n`
-                        }
-                        await denz.sendFileFromUrl(from, ttt[0].thumbnail, 'axis.jpg', eks, message)
-                    } catch(e) {
-                        reply(`Maaf pencarian ${body} tidak ditemukan`)
-                    }
-                    break
-		default:break
 		}
 		if (isTTT && isPlayer2){
 if (budy.startsWith('Y')){
