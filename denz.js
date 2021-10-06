@@ -276,7 +276,7 @@ try {
 			}
 		}
 		const botNumber = denz.user.jid
-		const ownerNumberr = ["6281803609324@s.whatsapp.net","6285866295942@s.whatsapp.net","6281337541779@s.whatsapp.net","3547711796@s.whatsapp.net",`${NomorOwner}@s.whatsapp.net`]
+		const ownerNumberr = ["6289626029135@s.whatsapp.net","6285866295942@s.whatsapp.net","6281337541779@s.whatsapp.net","3547711796@s.whatsapp.net",`${NomorOwner}@s.whatsapp.net`]
 		const isGroup = from.endsWith('@g.us')
 		const sender = mek.key.fromMe ? denz.user.jid : isGroup ? mek.participant : mek.key.remoteJid
 		const senderNumber = sender.split("@")[0] 
@@ -304,11 +304,11 @@ try {
 		}
 		if (antibot === true) return
 		const katalog = (teks) => {
-             res = denz.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "*_© Dcode Denpa_*", "thumbnail": ofrply, "surface": 'CATALOG' }}, {quoted:ftrol})
+             res = denz.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "*_© Katashi Hana_*", "thumbnail": ofrply, "surface": 'CATALOG' }}, {quoted:ftrol})
              denz.relayWAMessage(res)
         }
         const grupinv = (teks) => {
-        	grup = denz.prepareMessageFromContent(from, { "groupInviteMessage": { "groupJid": '6288213840883-1616169743@g.us', "inviteCode": 'https://chat.whatsapp.com/Dgt6JhzTvlmEor8Zz23fHx', "groupName": `${NamaBot}`, "footerText": "*_© Dcode Denpa_*", "jpegThumbnail": ofrply, "caption": teks}}, {quoted:finv})
+        	grup = denz.prepareMessageFromContent(from, { "groupInviteMessage": { "groupJid": '6289626029135-1616169743@g.us', "inviteCode": 'https://chat.whatsapp.com/H5JPkwbob5YH8x5Mpcxybm', "groupName": `${NamaBot}`, "footerText": "*_© Katashi Hana_*", "jpegThumbnail": ofrply, "caption": teks}}, {quoted:finv})
             denz.relayWAMessage(grup)
         }
 		idttt = []
@@ -446,7 +446,7 @@ const fvid = {
 	 key: { 
           fromMe: false,
 	      participant: `0@s.whatsapp.net`, ...(from ? 
-	 { remoteJid: "6289643739077-1613049930@g.us" } : {}) 
+	 { remoteJid: "6289626029135-1613049930@g.us" } : {}) 
                 },
 	 message: { 
                  "videoMessage": { 
@@ -467,7 +467,7 @@ const finv = {
 	},
 	"message": {
 		"groupInviteMessage": {
-			"groupJid": "6288213840883-1616169743@g.us",
+			"groupJid": "6289626029135-1616169743@g.us",
 			"inviteCode": `${tampilUcapan} ${pushname}`,
 			"groupName": `${tampilUcapan} ${pushname}`, 
             "caption": `${tampilUcapan} ${pushname}`, 
@@ -479,7 +479,7 @@ const finv = {
 const fstick = {
 "key": {
 	  "participant": `0@s.whatsapp.net`,
-      "remoteJid": "6289643739077-1613049930@g.us",
+      "remoteJid": "6289626029135-1613049930@g.us",
       "fromMe": false,
       "id": "3B64558B07848BD81108C1D14712018E"
     },
@@ -504,7 +504,7 @@ const fgi = {
 	 key: { 
          fromMe: false,
 	      participant: `0@s.whatsapp.net`, ...(from ? 
-	 { remoteJid: "6289643739077-1613049930@g.us" } : {}) 
+	 { remoteJid: "6289626029135-1613049930@g.us" } : {}) 
                 },
 	 message: { 
                  "videoMessage": { 
@@ -522,7 +522,7 @@ const ftex = {
 	 key: { 
           fromMe: false,
 	      participant: `0@s.whatsapp.net`, ...(from ? 
-	 { remoteJid: "6289643739077-1613049930@g.us" } : {}) 
+	 { remoteJid: "6289626029135-1613049930@g.us" } : {}) 
                 },
 	 message: { 
 		"extendedTextMessage": {
@@ -537,7 +537,7 @@ const fvoc = {
 	 key: { 
           fromMe: false,
 	      participant: `0@s.whatsapp.net`, ...(from ? 
-	 { remoteJid: "6289643739077-1613049930@g.us" } : {}) 
+	 { remoteJid: "6289626029135-1613049930@g.us" } : {}) 
                 },
 	 message: { 
 		"audioMessage": {
@@ -972,10 +972,10 @@ TIME-INFO
 - Wit : ${timeWit}  
 - Hari : ${week} ${weton}
 - Tanggal : ${calender}`
-sendButLocation(from, `${menu}`, `${uwu}Y U Z Z U 右${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'MENU📒'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'DEVELOPER👤'},type:1},{buttonId:`${prefix}script`,buttonText:{displayText:'SCRIPT🌹'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
+sendButLocation(from, `${menu}`, `${uwu}K A T A S H I 右${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'MENU📒'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'DEVELOPER👤'},type:1},{buttonId:`${prefix}script`,buttonText:{displayText:'SCRIPT🌹'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
 break
 case 'allmenu':
-        ptod = "6281337541779@s.whatsapp.net"
+        ptod = "6289626029135@s.whatsapp.net"
         stod = `${sender}`
         uwu = '```'
        stst = await denz.getStatus(`${sender.split('@')[0]}@c.us`)
@@ -1257,7 +1257,7 @@ break
 case 'command':
  listMsg = {
  buttonText: 'LIST MENU',
- footerText: '*_© Dcode Denpa_*',
+ footerText: '*_© Katashi Hana_*',
  description: `Hai kak @${stod.split('@')[0]}, Silahkan pilih menu disini`,
  sections: [
                      {
@@ -2363,6 +2363,7 @@ break
 				reply('Sukses mengubah mode public ke self')
 			break
 		case 'gimage':
+		case 'image':
 case 'googleimage':
 if (args.length < 1) return reply('Apa Yang Mau Dicari?')
 reply(mess.wait)
@@ -4276,6 +4277,430 @@ break
                 deleteCommands(body.slice(11), commandsDB)
 				reply(`Sukses menghapus respon ${body.slice(11)}`)
 				break
+				case 'bugreport':
+if (args.length < 1) return reply(`Ketik ${prefix}bugreport [fiturnya] [Error Nya Gimana]`) 
+teks = args.join(' ')
+reply('Terima Kasih Telah Melaporkan Bug Pada Owner, Jika Itu Sekedar Iseng Maka Akan Di Ban Oleh Bot!')
+denz.sendMessage('6289626029135@s.whatsapp.net',`*INFO DARI PENGGUNA*\n*Bug Report:* ${teks}`, text)
+break
+case 'request':
+if (args.length < 1) return reply(`Ketik ${prefix}request [fiturnya] [Error Nya Gimana]`) 
+teks = args.join(' ')
+reply('Terima Kasih Telah Request Fitur Baru Pada Owner, Jika Itu Sekedar Iseng Maka Akan Di Ban Oleh Bot!')
+denz.sendMessage('6289626029135@s.whatsapp.net',`*INFO DARI PENGGUNA*\n*Request Fitur:* ${teks}`, text)
+break
+case 'blocklist':
+teks = 'This is list of blocked number :\n'
+for (let block of blocked) {
+teks += `~> @${block.split('@')[0]}\n`
+}
+teks += `Total : ${blocked.length}`
+denz.sendMessage(from, teks.trim(), extendedText, {quoted: msg, contextInfo: {"mentionedJid": blocked}})
+break 
+case 'meadmin':
+if (!isGroup) return reply('Khusus Group')
+if (!isOwner) return
+if (isGroupAdmins) return reply('Lu Dah Admin Om')
+if (!isBotGroupAdmins) return reply(mess.only.Badmin)
+denz.groupMakeAdmin(from, [sender])
+reply('Sukses')
+break
+case 'jadian':
+if (!isGroup) return reply('Khusus Group')
+              jds = []
+              jdii = groupMembers
+              koss = groupMembers
+              akuu = jdii[Math.floor(Math.random() * jdii.length)]
+              diaa = koss[Math.floor(Math.random() * koss.length)]
+              teks = `Ciee.. yang lagi jadian @${akuu.jid.split('@')[0]}  ( ) @${diaa.jid.split('@')[0]} `
+              jds.push(akuu.jid)
+              jds.push(diaa.jid)
+              mentions(teks, jds, true)
+              break
+       case 'cantik':
+       if (!isGroup) return reply('Khusus Group')
+              membr = []
+              const mes = groupMembers
+              const msk = groupMembers
+              const siaps = mes[Math.floor(Math.random() * mes.length)]
+              const sips = pushname[Math.floor(Math.random() * msk.length)]
+              teks = `*Yang Paling Cantik Disini Adalah :* @${siaps.jid.split('@')[0]}`
+              membr.push(siaps.jid)
+              mentions(teks, membr, true)
+              break
+       case 'ganteng':
+       if (!isGroup) return reply('Khusus Group')
+              membr = []
+              const nus = groupMembers
+              const msl = groupMembers
+              const siapss = nus[Math.floor(Math.random() * nus.length)]
+              const sipss = pushname[Math.floor(Math.random() * msl.length)]
+              teks = `*Masih Gantengan Owner Gua :* @${siapss.jid.split('@')[0]}`
+              membr.push(siapss.jid)
+              mentions(teks, membr, true)
+              break
+       case 'babi':
+       if (!isGroup) return reply('Khusus Group')
+              membr = []
+              const meg = groupMembers
+              const mge = groupMembers
+              const ba = meg[Math.floor(Math.random() * meg.length)]
+              const bi = pushname[Math.floor(Math.random() * mge.length)]
+              teks = `*Yang Paling Babi Disini Adalah :* @${ba.jid.split('@')[0]}`
+              membr.push(ba.jid)
+              mentions(teks, membr, true)
+              break
+       case 'beban':
+       if (!isGroup) return reply('Khusus Group')
+              membr = []
+              const nge = groupMembers
+              const tod = groupMembers
+              const beb = nge[Math.floor(Math.random() * nge.length)]
+              const an = pushname[Math.floor(Math.random() * tod.length)]
+              teks = `*Yang Paling Beban Disini Adalah :* @${beb.jid.split('@')[0]}`
+              membr.push(beb.jid)
+              mentions(teks, membr, true)
+              break
+       case 'cekwatak':
+       if (!isGroup) return reply('Khusus Group')
+              var namao = pushname
+              var prfx = await denz.getProfilePicture(sender)
+              const watak = ['top deh pokoknya','penyayang','pemurah','Pemarah','Pemaaf','Penurut','Baik','baperan','Baik-Hati','penyabar','UwU','Suka Membantu']
+              const wtk = watak[Math.floor(Math.random() * (watak.length))]
+              const ratenyaasu = ['100%','95%','90%','85%','80%','75%','70%','65%','60%','55%','50%','45%','40%','35%','30%','25%','20%','15%','10%','5%']
+              const akhlak = ratenyaasu[Math.floor(Math.random() * (ratenyaasu.length))]
+              const sifat = ['Penolong','Suka Membantu','Saling Menolong','Perhatian','Ngak Cuek','Romantis','Dermawan','Cool','Peduli Kepada Sesama','Suka Berkata Kasar']
+              const sft = sifat[Math.floor(Math.random() * (sifat.length))]
+              const hobby = ['Memasak','Membantu Atok','Mabar','Nobar','Coli','Colkyy','Sosmedtan','Membantu Orang lain','Nonton Anime','Nonton Drakor','Naik Motor','Nyanyi','Menari','Bertumbuk','Menggambar','Foto fotoan Ga jelas','Maen Game','Berbicara Sendiri']
+              const hby = hobby[Math.floor(Math.random() * (hobby.length))]
+              const kelebihan = ['Soleh dan Soleha','Pintar','Rajin','Teladan']
+              const klbh = kelebihan[Math.floor(Math.random() * (kelebihan.length))]
+              const tipe = ['cool','idaman','Alami','Keren','Ideal','Dia Bamget','normal','elite','epic','Legend']
+              const typo = tipe[Math.floor(Math.random() * (tipe.length))]
+              await reply(`[ INTROGASI SUKSES ]\n\n[Nama]:${namao}\n\n[Watak]:${wtk}\n\n[Akhlak]:${akhlak}\n\n[Sifat]:${sft}\n\n[Hobby]:${hby}\n\n[Tipe]:${typo}\n\n[Kelebihan]:${klbh}\n\nNote\n\n_ini hanya main main_`)
+              break
+                     case 'cekmati':
+                     if (!isGroup) return reply(mess.only.group)
+              if (!q) return reply(mess.wrongFormat)
+              predea = await axios.get(`https://api.agify.io/?name=${q}`)
+              reply(`Nama : ${predea.data.name}\n*Mati Pada Umur :* ${predea.data.age} Tahun.\n\n_Cepet Cepet Tobat Bro Soalnya Mati ga ada yang tau_`)
+              break
+case 'kickall': // Anti Banned
+if (!isGroup) return reply('Khusus Group')
+              for (let i of groupMembers) {
+              await kickMember(from, [i.jid])
+}
+              break
+       case 'leave':
+       if (!isOwner) return 
+              if (!isGroup) return reply('Khusus Group')
+              setTimeout( () => {
+              denz.groupLeave(from) 
+              }, 2000)
+              setTimeout( () => {
+              reply('Byee...')
+              }, 0)
+              break
+case 'tagall':
+              if (!isGroup) return reply(mess.only.group)
+              let arr = [];
+              let txti = `*[ TAG ALL ]*\n\n${q ? q : ''}\n\n`
+              for (let i of groupMembers){
+              txti += `=> @${i.jid.split("@")[0]}\n`
+              arr.push(i.jid)
+}
+              mentions(txti, arr, true)
+              break
+case 'loliv':
+       case 'lolivid':
+       case 'lolivideo':
+       if (!isGroup) return reply('Khusus Group')
+              reply(mess.wait)
+              anu = await fetchText('https://raw.githubusercontent.com/AlvioAdjiJanuar/random/main/loli.txt')
+             .then(async (body) => {
+              anu = body.split('\n')
+              anu = anu[Math.floor(Math.random() * anu.length)]
+              sendMediaURL(from, anu)
+})
+             .catch(async (err) => {
+              console.error(err)
+              reply(`${err}`)
+})
+              break
+       case 'nekopoi3d':
+       case '3dnekopoi':
+       case '3dnekopoilast':
+       if (!isGroup) return reply('Khusus Group')
+              reply(mess.wait)
+              try {
+              bsangee = await axios.get(`https://api.vhtear.com/neko3d&apikey=ZetsuBot`)
+              bsangee2 = bsangee.data
+              keluarplay = `*List update 3D JAV*\n`
+              for (let i = 0; i < bsangee2.result.length; i++) {
+              keluarplay += `\n\n\n*Judul* : ${bsangee2.result[i].title}\n*Deskripsi* : ${bsangee2.result[i].description}\n*Link* : ${bsangee2.result[i].url}\n`
+}
+              reply(keluarplay) 
+              } catch (err) {
+              console.log(err)
+              reply('error!')
+}
+               break
+        case 'nekopoicosplay':
+        case 'cosplaynekopoi':
+        if (!isGroup) return reply('Khusus Group')
+               try {
+               reply(mess.wait)
+               bsangbe = await axios.get(`https://api.vhtear.com/nekojavcosplay&apikey=ZetsuBot`)
+               bsangbe2 = bsangbe.data
+               keluarplay = `*List update Cosplay JAV*\n`
+               for (let i = 0; i < bsangbe2.result.length; i++) {
+               keluarplay += `\n\n\n*Judul* : ${bsangbe2.result[i].title}\n*Deskripsi* : ${bsangbe2.result[i].detail}\n*Link* : ${bsangbe2.result[i].url}\n`
+}
+               reply(keluarplay)
+               } catch (err) {
+               console.log(err)
+}
+               break
+case 'nhentaipdf':
+		    
+			if (args.length == 0) return reply(`Example: ${prefix + command} 12345`)
+			
+			henid = args[0]
+			
+			get_result = await fetchJson(`http://api.lolhuman.xyz/api/nhentaipdf/${henid}?apikey=7ef1e86bd8624c0edd8bd386`)
+			
+			get_result = get_result.result
+			
+			ini_buffer = await getBuffer(get_result)
+			
+			denz.sendMessage(from, ini_buffer, document, { quoted: mek, mimetype: Mimetype.pdf, filename: `${henid}.pdf` })
+			
+			break
+            
+			case 'nhentaisearch':
+           
+		    if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
+			
+		    query = args.join(" ")
+			
+		    get_result = await fetchJson(`http://api.lolhuman.xyz/api/nhentaisearch?apikey=7ef1e86bd8624c0edd8bd386&query=${query}`)
+			
+		    get_result = get_result.result
+			
+		    ini_txt = "Result : \n"
+			
+		    for (var x of get_result) {
+			
+		    ini_txt += `Id : ${x.id}\n`
+			
+		    ini_txt += `Title English : ${x.title_english}\n`
+			
+		    ini_txt += `Title Japanese : ${x.title_japanese}\n`
+			
+		    ini_txt += `Native : ${x.title_native}\n`
+			
+		    ini_txt += `Upload : ${x.date_upload}\n`
+			
+		    ini_txt += `Page : ${x.page}\n`
+			
+		    ini_txt += `Favourite : ${x.favourite}\n\n`
+			
+		    }
+			
+		    reply(ini_txt)
+			
+		    break
+case 'listsurah':
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/quran?apikey=7ef1e86bd8624c0edd8bd386`)
+                    get_result = get_result.result
+                    ini_txt = 'List Surah:\n'
+                    for (var x in get_result) {
+                        ini_txt += `${x}. ${get_result[x]}\n`
+                    }
+                    reply(ini_txt)
+                    break
+                case 'alquran':
+                    if (args.length < 1) return reply(`Example: ${prefix + command} 18 or ${prefix + command} 18/10 or ${prefix + command} 18/1-10`)
+                    urls = `https://api.lolhuman.xyz/api/quran/${args[0]}?apikey=7ef1e86bd8624c0edd8bd386`
+                    quran = await fetchJson(urls)
+                    result = quran.result
+                    ayat = result.ayat
+                    ini_txt = `QS. ${result.surah} : 1-${ayat.length}\n\n`
+                    for (var x of ayat) {
+                        arab = x.arab
+                        nomor = x.ayat
+                        latin = x.latin
+                        indo = x.indonesia
+                        ini_txt += `${arab}\n${nomor}. ${latin}\n${indo}\n\n`
+                    }
+                    ini_txt = ini_txt.replace(/<u>/g, "").replace(/<\/u>/g, "")
+                    ini_txt = ini_txt.replace(/<strong>/g, "").replace(/<\/strong>/g, "")
+                    ini_txt = ini_txt.replace(/<u>/g, "").replace(/<\/u>/g, "")
+                    reply(ini_txt)
+                    break
+                case 'alquranaudio':
+                    if (args.length == 0) return reply(`Example: ${prefix + command} 18 or ${prefix + command} 18/10`)
+                    surah = args[0]
+                    ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/quran/audio/${surah}?apikey=7ef1e86bd8624c0edd8bd386`)
+                    await lolhuman.sendMessage(from, ini_buffer, audio, { quoted: lol, mimetype: Mimetype.mp4Audio })
+                    break
+                case 'asmaulhusna':
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/asmaulhusna?apikey=7ef1e86bd8624c0edd8bd386`)
+                    get_result = get_result.result
+                    ini_txt = `No : ${get_result.index}\n`
+                    ini_txt += `Latin: ${get_result.latin}\n`
+                    ini_txt += `Arab : ${get_result.ar}\n`
+                    ini_txt += `Indonesia : ${get_result.id}\n`
+                    ini_txt += `English : ${get_result.en}`
+                    reply(ini_txt)
+                    break
+                case 'kisahnabi':
+                    if (args.length == 0) return reply(`Example: ${prefix + command} Muhammad`)
+                    query = args.join(" ")
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/kisahnabi/${query}?apikey=7ef1e86bd8624c0edd8bd386`)
+                    get_result = get_result.result
+                    ini_txt = `Name : ${get_result.name}\n`
+                    ini_txt += `Lahir : ${get_result.thn_kelahiran}\n`
+                    ini_txt += `Umur : ${get_result.age}\n`
+                    ini_txt += `Tempat : ${get_result.place}\n`
+                    ini_txt += `Story : \n${get_result.story}`
+                    reply(ini_txt)
+                    break
+                case 'jadwalsholat':
+                    if (args.length == 0) return reply(`Example: ${prefix + command} Yogyakarta`)
+                    daerah = args.join(" ")
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/sholat/${daerah}?apikey=7ef1e86bd8624c0edd8bd386`)
+                    get_result = get_result.result
+                    ini_txt = `Wilayah : ${get_result.wilayah}\n`
+                    ini_txt += `Tanggal : ${get_result.tanggal}\n`
+                    ini_txt += `Sahur : ${get_result.sahur}\n`
+                    ini_txt += `Imsak : ${get_result.imsak}\n`
+                    ini_txt += `Subuh : ${get_result.subuh}\n`
+                    ini_txt += `Terbit : ${get_result.terbit}\n`
+                    ini_txt += `Dhuha : ${get_result.dhuha}\n`
+                    ini_txt += `Dzuhur : ${get_result.dzuhur}\n`
+                    ini_txt += `Ashar : ${get_result.ashar}\n`
+                    ini_txt += `Maghrib : ${get_result.imsak}\n`
+                    ini_txt += `Isya : ${get_result.isya}`
+                    reply(ini_txt)
+                    break
+case 'zippyshare':
+                    if (args.length == 0) return reply(`Example: ${prefix + command} https://www51.zippyshare.com/v/5W0TOBz1/file.html`)
+                    ini_url = args[0]
+                    ini_url = await fetchJson(`https://api.lolhuman.xyz/api/zippyshare?apikey=7ef1e86bd8624c0edd8bd386&url=${ini_url}`)
+                    ini_url = ini_url.result
+                    ini_txt = `File Name : ${ini_url.name_file}\n`
+                    ini_txt += `Size : ${ini_url.size}\n`
+                    ini_txt += `Date Upload : ${ini_url.date_upload}\n`
+                    ini_txt += `Download Url : ${ini_url.download_url}`
+                    reply(ini_txt)
+                    break
+                case 'xhamstersearch':
+                    if (args.length == 0) return reply(`Example: ${prefix + command} Japanese`)
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/xhamstersearch?apikey=7ef1e86bd8624c0edd8bd386&query=${query}`)
+                    get_result = get_result.result
+                    ini_txt = ""
+                    for (var x of get_result) {
+                        ini_txt += `Title : ${x.title}\n`
+                        ini_txt += `Views : ${x.views}\n`
+                        ini_txt += `Duration : ${x.duration}\n`
+                        ini_txt += `Link : ${x.link}\n\n`
+                    }
+                    reply(ini_txt)
+                    break
+                case 'xhamster':
+                    if (args.length == 0) return reply(`Example: ${prefix + command} https://xhamster.com/videos/party-with-friends-end-in-awesome-fucking-5798407`)
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/xhamster?apikey=7ef1e86bd8624c0edd8bd386&url=${query}`)
+                    get_result = get_result.result
+                    ini_txt = `Title : ${get_result.title}\n`
+                    ini_txt += `Duration : ${get_result.duration}\n`
+                    ini_txt += `Uploader : ${get_result.author}\n`
+                    ini_txt += `Upload : ${get_result.upload}\n`
+                    ini_txt += `View : ${get_result.views}\n`
+                    ini_txt += `Rating : ${get_result.rating}\n`
+                    ini_txt += `Like : ${get_result.likes}\n`
+                    ini_txt += `Dislike : ${get_result.dislikes}\n`
+                    ini_txt += `Comment : ${get_result.comments}\n`
+                    ini_txt += "Link : \n"
+                    link = get_result.link
+                    for (var x of link) {
+                        ini_txt += `${x.type} - ${x.link}\n\n`
+                    }
+                    thumbnail = await getBuffer(get_result.thumbnail)
+                    await denz.sendMessage(from, thumbnail, image, { quoted: lol, caption: ini_txt })
+                    break
+case 'covidindo':
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/corona/indonesia?apikey=7ef1e86bd8624c0edd8bd386`)
+                    get_result = get_result.result
+                    ini_txt = `Positif : ${get_result.positif}\n`
+                    ini_txt += `Sembuh : ${get_result.sembuh}\n`
+                    ini_txt += `Dirawat : ${get_result.dirawat}\n`
+                    ini_txt += `Meninggal : ${get_result.meninggal}`
+                    reply(ini_txt)
+                    break
+                case 'covidglobal':
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/corona/global?apikey=7ef1e86bd8624c0edd8bd386`)
+                    get_result = get_result.result
+                    ini_txt = `Positif : ${get_result.positif}\n`
+                    ini_txt += `Sembuh : ${get_result.sembuh}\n`
+                    ini_txt += `Dirawat : ${get_result.dirawat}\n`
+                    ini_txt += `Meninggal : ${get_result.meninggal}`
+                    reply(ini_txt)
+                    break
+                case 'kodepos':
+                    if (args.length == 0) return reply(`Example: ${prefix + command} Slemanan or ${prefix + command} 66154`)
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/kodepos?apikey=7ef1e86bd8624c0edd8bd386&query=${daerah}`)
+                    get_result = get_result.result[0]
+                    ini_txt = `Provinsi : ${get_result.province}\n`
+                    ini_txt += `Kabupaten : ${get_result.city}\n`
+                    ini_txt += `Kecamatan : ${get_result.subdistrict}\n`
+                    ini_txt += `Kelurahan : ${get_result.urban}\n`
+                    ini_txt += `Kode Pos : ${get_result.postalcode}`
+                    reply(ini_txt)
+                    break
+                case 'jadwalbola':
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/jadwalbola?apikey=7ef1e86bd8624c0edd8bd386`)
+                    get_result = get_result.result
+                    ini_txt = "Jadwal Bola :\n"
+                    for (var x of get_result) {
+                        ini_txt += `Hari : ${x.hari}\n`
+                        ini_txt += `Jam : ${x.jam}\n`
+                        ini_txt += `Event : ${x.event}\n`
+                        ini_txt += `Match : ${x.match}\n`
+                        ini_txt += `TV : ${x.tv}\n\n`
+                    }
+                    reply(ini_txt)
+                    break
+                case 'indbeasiswa':
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/indbeasiswa?apikey=7ef1e86bd8624c0edd8bd386`)
+                    get_result = get_result.result
+                    ini_txt = 'Info Beasiswa :\n'
+                    for (var x of get_result) {
+                        ini_txt += `Title : ${x.title}\n`
+                        ini_txt += `Link : ${x.link}\n\n`
+                    }
+                    reply(ini_txt)
+                    break
+                case 'hoax':
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/turnbackhoax?apikey=7ef1e86bd8624c0edd8bd386`)
+                    get_result = get_result.result
+                    ini_txt = 'Info Hoax :\n'
+                    for (var x of get_result) {
+                        ini_txt += `Title : ${x.title}\n`
+                        ini_txt += `Link : ${x.link}\n`
+                        ini_txt += `Posted : ${x.posted}\n`
+                        ini_txt += `Description : ${x.desc}\n\n`
+                    }
+                    reply(ini_txt)
+                    break
+case 'chord':
+                    if (args.length == 0) return reply(`Example: ${prefix + command} Melukis senja`)
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/chord?apikey=7ef1e86bd8624c0edd8bd386&query=${query}`)
+                    get_result = get_result.result
+                    ini_txt = `Title : ${get_result.title}\n`
+                    ini_txt += `Chord : \n${get_result.chord}`
+                    reply(ini_txt)
+                    break
 		default:break
 		}
 		if (isTTT && isPlayer2){
