@@ -1212,6 +1212,7 @@ menu = `${uwu}
 │◦➛${prefix}xv [ link ]
 │◦➛${prefix}xhamsterseaech [ query ]
 │◦➛${prefix}xhamster [ link ]
+│◦➛${prefix}xnxxsearch [ query ]
 │
 ├─❒ TOOLS
 │◦➛${prefix}getscmd
@@ -1807,6 +1808,22 @@ case 'xsearch':
 case 'xs':
 if (!c) return reply('Nyari Apa?')
 pepex = await fetchJson(`https://bx-hunter.herokuapp.com/api/xvideosearch?query=${c}&apikey=${HunterApi}`)
+reply(mess.wait)
+pepex = pepex.result
+ini_txt = ""
+for (var x of pepex) {
+ini_txt += `Title : ${x.title}\n`
+ini_txt += `Info : ${x.info}\n`
+ini_txt += `Link : ${x.link}\n\n\n`
+}
+anu = `${ini_txt}───────────────\n\n┌ ◪ *DOWNLOAD*
+└ ${prefix}xvideo [link xvid] = Video`
+denz.sendMessage(from, anu, text, {quoted: mek})
+break
+case 'xnxxsearch2':
+case 'xs2':
+if (!c) return reply('Nyari Apa?')
+pepex = await fetchJson(`https://bx-hunter.herokuapp.com/api/xnxxsearch?query=${c}&apikey=${HunterApi}`)
 reply(mess.wait)
 pepex = pepex.result
 ini_txt = ""
@@ -4632,7 +4649,7 @@ case 'zippyshare':
                         ini_txt += `${x.type} - ${x.link}\n\n`
                     }
                     thumbnail = await getBuffer(get_result.thumbnail)
-                    await denz.sendMessage(from, thumbnail, image, { quoted: lol, caption: ini_txt })
+                    await denz.sendMessage(from, thumbnail, image, { quoted: mek, caption: ini_txt })
                     break
 case 'covidindo':
                     get_result = await fetchJson(`https://api.lolhuman.xyz/api/corona/indonesia?apikey=7ef1e86bd8624c0edd8bd386`)
@@ -4751,7 +4768,7 @@ case 'lk21':
                     ini_txt += `Language : ${get_result.language}\n`
                     ini_txt += `Link Download : ${get_result.link_dl}`
                     thumbnail = await getBuffer(get_result.thumbnail)
-                    await denz.sendMessage(from, thumbnail, image, { quoted: lol, caption: ini_txt })
+                    await denz.sendMessage(from, thumbnail, image, { quoted: mek, caption: ini_txt })
                     break
                 case 'drakorongoing':
                     get_result = await fetchJson(`https://api.lolhuman.xyz/api/drakorongoing?apikey=7ef1e86bd8624c0edd8bd386`)
@@ -4784,7 +4801,7 @@ case 'lk21':
                     ini_txt += `Description : ${get_result.desc}\n\n`
                     ini_txt += `Story : \n${get_result.story}`
                     thumbnail = await getBuffer(get_result.photo)
-                    await denz.sendMessage(from, thumbnail, image, { quoted: lol, caption: ini_txt })
+                    await denz.sendMessage(from, thumbnail, image, { quoted: mek, caption: ini_txt })
                     break
                 case 'wattpadsearch':
                     if (args.length == 0) return reply(`Example: ${prefix + command} Tere Liye`)
@@ -4853,39 +4870,17 @@ case 'jadwaltv':
                     }
                     reply(ini_txt)
                     break
-                case 'cnnindonesia':
-                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/cnnindonesia?apikey=7ef1e86bd8624c0edd8bd386`)
+case 'kompastv':
+                    get_result = await fetchJson(`https://bx-hunter.herokuapp.com/api/kompastv?apikey=Ikyy69`)
                     get_result = get_result.result
                     ini_txt = "Result :\n"
                     for (var x of get_result) {
-                        ini_txt += `Judul : ${x.judul}\n`
-                        ini_txt += `Link : ${x.link}\n`
-                        ini_txt += `Tipe : ${x.tipe}\n`
-                        ini_txt += `Published : ${x.waktu}\n\n`
-                    }
-                    reply(ini_txt)
-                    break
-                case 'cnnnasional':
-                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/cnnindonesia/nasional?apikey=7ef1e86bd8624c0edd8bd386`)
-                    get_result = get_result.result
-                    ini_txt = "Result :\n"
-                    for (var x of get_result) {
-                        ini_txt += `Judul : ${x.judul}\n`
-                        ini_txt += `Link : ${x.link}\n`
-                        ini_txt += `Tipe : ${x.tipe}\n`
-                        ini_txt += `Published : ${x.waktu}\n\n`
-                    }
-                    reply(ini_txt)
-                    break
-                case 'cnninternasional':
-                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/cnnindonesia/internasional?apikey=7ef1e86bd8624c0edd8bd386`)
-                    get_result = get_result.result
-                    ini_txt = "Result :\n"
-                    for (var x of get_result) {
-                        ini_txt += `Judul : ${x.judul}\n`
-                        ini_txt += `Link : ${x.link}\n`
-                        ini_txt += `Tipe : ${x.tipe}\n`
-                        ini_txt += `Published : ${x.waktu}\n\n`
+                        ini_txt += `Title : ${x.title}\n`
+                        ini_txt += `Author : ${x.author}\n`
+                        ini_txt += `Source : ${x.source.name}\n`
+                        ini_txt += `Url : ${x.url}\n`
+                        ini_txt += `Published : ${x.publishedAt}\n`
+                        ini_txt += `Description : ${x.description}\n\n`
                     }
                     reply(ini_txt)
                     break
@@ -4931,12 +4926,25 @@ case 'kbbi':
                         }
                     }
                     ini_buffer = await getBuffer(get_result.thumb)
-                    await lolhuman.sendMessage(from, ini_buffer, image, { quoted: lol, caption: ini_txt })
+                    await denz.sendMessage(from, ini_buffer, image, { quoted: mek, caption: ini_txt })
                     break
                 case 'nekopoisearch':
                     if (args.length == 0) return reply(`Example: ${prefix + command} Isekai Harem`)
                     query = args.join(" ")
                     get_result = await fetchJson(`https://api.lolhuman.xyz/api/nekopoisearch?apikey=7ef1e86bd8624c0edd8bd386&query=${query}`)
+                    get_result = get_result.result
+                    ini_txt = ""
+                    for (var x of get_result) {
+                        ini_txt += `Title : ${x.title}\n`
+                        ini_txt += `Link : ${x.link}\n`
+                        ini_txt += `Thumbnail : ${x.thumbnail}\n\n`
+                    }
+                    reply(ini_txt)
+                    break
+case 'jalantikus':
+                    if (args.length == 0) return reply(`Example: ${prefix + command} Isekai Harem`)
+                    query = args.join(" ")
+                    get_result = await fetchJson(`https://bx-hunter.herokuapp.com/api/jalantikus?apikey=Ikyy69&query=${query}`)
                     get_result = get_result.result
                     ini_txt = ""
                     for (var x of get_result) {
@@ -5002,7 +5010,7 @@ case 'xnxxsearch':
                         ini_txt += `${x.type} - ${x.link}\n\n`
                     }
                     thumbnail = await getBuffer(get_result.thumbnail)
-                    await denz.sendMessage(from, thumbnail, image, { quoted: lol, caption: ini_txt })
+                    await denz.sendMessage(from, thumbnail, image, { quoted: mek, caption: ini_txt })
                     break
 case 'spotify':
                     if (args.length == 0) return reply(`Example: ${prefix + command} https://open.spotify.com/track/0ZEYRVISCaqz5yamWZWzaA`)
@@ -5017,7 +5025,7 @@ case 'spotify':
                     thumbnail = await getBuffer(get_result.thumbnail)
                     await denz.sendMessage(from, thumbnail, image, { quoted: lol, caption: ini_txt })
                     get_audio = await getBuffer(get_result.link)
-                    await denz.sendMessage(from, get_audio, audio, { mimetype: 'audio/mp4', filename: `${get_result.title}.mp3`, quoted: lol })
+                    await denz.sendMessage(from, get_audio, audio, { mimetype: 'audio/mp4', filename: `${get_result.title}.mp3`, quoted: mek })
                     break
                 case 'spotifysearch':
                     if (args.length == 0) return reply(`Example: ${prefix + command} Melukis Senja`)
@@ -5034,6 +5042,36 @@ case 'spotify':
                     }
                     reply(ini_txt)
                     break
+case 'ytplaylist':
+                        if (args.length == 0) return reply(`Example: ${prefix + command} katashi hana`)
+                        query = args.join(" ")
+                        res = await axios.get(`https://api.zeks.me/api/ytplaylist?apikey=CpGSLymOQy9KfTKgQZr9eDSYqqR&query=${query}`)
+                        ttt = res.result
+                        var tekss = `*「 YOUTUBE PLAYLIST 」*\n\n*Hasil Pencarian : ${data.body}*\n\n`
+                        for(let i = 0; i < ttt.length; i++) {
+                            tekss += `*Nama* : ${ttt[i].title}\n*Jumlah video*: ${ttt[i].video_count}\n*Channel*: ${ttt[i].uploader.username}\n*Link*: ${ttt[i].url}\n\n`
+                        }
+                        await denz.sendFileFromUrl(from, ttt[0].thumbnail, 'axis.jpg', tekss, message)
+                    } catch(e) {
+                        reply(`Maaf pencarian ${body} tidak ditemukan`)
+                    }
+                    break
+case 'happymod':
+                    try {
+                        if(isLimit(data.sender)) return data.reply(mess.limit)
+                        if(data.body == "") return data.reply(`Kirim perintah *${data.prefix}happymod [ apk ]*\nContoh : ${data.prefix}happymod pubg`)
+                        data.reply(mess.wait)
+                        res = await axios.get(`https://api.zeks.me/api/happymod?apikey=CpGSLymOQy9KfTKgQZr9eDSYqqR&query=${query}`)
+                        ttt = res.result
+                        var teks = `*「 HAPPYMOD 」*\n\n*Hasil Pencarian : ${data.body}*\n\n`
+                        for(let i = 0; i < ttt.length; i++) {
+                            teks += `*Title* : ${ttt[i].title}\n*Rate*: ${ttt[i].rating}\n*Link*: ${ttt[i].url}\n\n`
+                        }
+                        await denz.sendFileFromUrl(from, ttt[0].thumb, 'p.jpg', teks, message)
+                    } catch {
+                        reply(`Maaf aplikasi MOD ${body} tidak ditemukan`)
+                    }
+                    break
                 case 'jooxplay':
                     if (args.length == 0) return reply(`Example: ${prefix + command} Melukis Senja`)
                     query = args.join(" ")
@@ -5048,7 +5086,21 @@ case 'spotify':
                     thumbnail = await getBuffer(get_result.image)
                     await denz.sendMessage(from, thumbnail, image, { quoted: lol, caption: ini_txt })
                     get_audio = await getBuffer(get_result.audio[0].link)
-                    await denz.sendMessage(from, get_audio, audio, { mimetype: 'audio/mp4', filename: `${get_result.info.song}.mp3`, quoted: lol })
+                    await denz.sendMessage(from, get_audio, audio, { mimetype: 'audio/mp4', filename: `${get_result.info.song}.mp3`, quoted: mek })
+                    break
+case 'ytchannel':
+                        if(data.body == "") return data.reply(`Kirim perintah *${data.prefix}ytchannel [ channel ]*\nContoh : ${prefix}ytchannel jessnolimit`)
+                        reply(mess.wait)
+                        res = await axios.get(`https://api.zeks.me/api/ytchannel?apikey=CpGSLymOQy9KfTKgQZr9eDSYqqR&q=${body}`)
+                        ttt = res.result
+                        var eks = `*「 YOUTUBE CHANNEL 」*\n\n*Hasil Pencarian : ${body}*\n\n`
+                        for(let i = 0; i < ttt.length; i++) {
+                            eks += `*Nama* : ${ttt[i].title}\n*Deskripsi*: ${ttt[i].description}\n*Verified* : ${ttt[i].verified}\n*Jumlah video*: ${ttt[i].video_count}\n*Subcriber*: ${ttt[i].subscriber_count}\n*Link*: ${ttt[i].url}\n\n`
+                        }
+                        await denz.sendFileFromUrl(from, ttt[0].thumbnail, 'axis.jpg', eks, message)
+                    } catch(e) {
+                        reply(`Maaf pencarian ${body} tidak ditemukan`)
+                    }
                     break
 		default:break
 		}
