@@ -5037,6 +5037,493 @@ case 'spotify':
                     get_audio = await getBuffer(get_result.audio[0].link)
                     await denz.sendMessage(from, get_audio, audio, { mimetype: 'audio/mp4', filename: `${get_result.info.song}.mp3`, quoted: mek })
                     break
+case 'otakudesu':
+                    if (args.length == 0) return reply(`Example: ${prefix + command} https://otakudesu.tv/lengkap/pslcns-sub-indo/`)
+                    ini_url = args[0]
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/otakudesu?apikey=7ef1e86bd8624c0edd8bd386&url=${ini_url}`)
+                    get_result = get_result.result
+                    ini_txt = `Title : ${get_result.title}\n`
+                    ini_txt += `Japanese : ${get_result.japanese}\n`
+                    ini_txt += `Judul : ${get_result.judul}\n`
+                    ini_txt += `Type : ${get_result.type}\n`
+                    ini_txt += `Episode : ${get_result.episodes}\n`
+                    ini_txt += `Aired : ${get_result.aired}\n`
+                    ini_txt += `Producers : ${get_result.producers}\n`
+                    ini_txt += `Genre : ${get_result.genres}\n`
+                    ini_txt += `Duration : ${get_result.duration}\n`
+                    ini_txt += `Studios : ${get_result.status}\n`
+                    ini_txt += `Rating : ${get_result.rating}\n`
+                    ini_txt += `Credit : ${get_result.credit}\n`
+                    get_link = get_result.link_dl
+                    for (var x in get_link) {
+                        ini_txt += `\n\n*${get_link[x].title}*\n`
+                        for (var y in get_link[x].link_dl) {
+                            ini_info = get_link[x].link_dl[y]
+                            ini_txt += `\n\`\`\`Reso : \`\`\`${ini_info.reso}\n`
+                            ini_txt += `\`\`\`Size : \`\`\`${ini_info.size}\n`
+                            ini_txt += `\`\`\`Link : \`\`\`\n`
+                            down_link = ini_info.link_dl
+                            for (var z in down_link) {
+                                ini_txt += `${z} - ${down_link[z]}\n`
+                            }
+                        }
+                    }
+                    reply(ini_txt)
+                    break
+                case 'otakudesusearch':
+                    if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
+                    query = args.join(" ")
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/otakudesusearch?apikey=7ef1e86bd8624c0edd8bd386&query=${query}`)
+                    get_result = get_result.result
+                    ini_txt = `Title : ${get_result.title}\n`
+                    ini_txt += `Japanese : ${get_result.japanese}\n`
+                    ini_txt += `Judul : ${get_result.judul}\n`
+                    ini_txt += `Type : ${get_result.type}\n`
+                    ini_txt += `Episode : ${get_result.episodes}\n`
+                    ini_txt += `Aired : ${get_result.aired}\n`
+                    ini_txt += `Producers : ${get_result.producers}\n`
+                    ini_txt += `Genre : ${get_result.genres}\n`
+                    ini_txt += `Duration : ${get_result.duration}\n`
+                    ini_txt += `Studios : ${get_result.status}\n`
+                    ini_txt += `Rating : ${get_result.rating}\n`
+                    ini_txt += `Credit : ${get_result.credit}\n`
+                    get_link = get_result.link_dl
+                    for (var x in get_link) {
+                        ini_txt += `\n\n*${get_link[x].title}*\n`
+                        for (var y in get_link[x].link_dl) {
+                            ini_info = get_link[x].link_dl[y]
+                            ini_txt += `\n\`\`\`Reso : \`\`\`${ini_info.reso}\n`
+                            ini_txt += `\`\`\`Size : \`\`\`${ini_info.size}\n`
+                            ini_txt += `\`\`\`Link : \`\`\`\n`
+                            down_link = ini_info.link_dl
+                            for (var z in down_link) {
+                                ini_txt += `${z} - ${down_link[z]}\n`
+                            }
+                        }
+                    }
+                    reply(ini_txt)
+                    break
+                    case 'genshin':
+                    if (args.length == 0) return reply(`Example: ${prefix + command} jean`)
+                    hero = args.join(" ")
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/genshin/${hero}?apikey=7ef1e86bd8624c0edd8bd386`)
+                    get_result = get_result.result
+                    ini_txt = `Name : ${get_result.title}\n`
+                    ini_txt += `Intro : ${get_result.intro}\n`
+                    ini_txt += `Icon : ${get_result.icon}\n`
+                    ini_icon = await getBuffer(get_result.cover1)
+                    await denz.sendMessage(from, ini_icon, image, { quoted: mek, caption: ini_txt })
+                    ini_voice = await getBuffer(get_result.cv[0].audio[0])
+                    await denz.sendMessage(from, ini_voice, audio, { quoted: mek, mimetype: Mimetype.mp4Audio })
+                    break
+case 'cuaca':
+                    if (args.length == 0) return reply(`Example: ${prefix + command} Yogyakarta`)
+                    daerah = args[0]
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/cuaca/${daerah}?apikey=7ef1e86bd8624c0edd8bd386`)
+                    get_result = get_result.result
+                    ini_txt = `Tempat : ${get_result.tempat}\n`
+                    ini_txt += `Cuaca : ${get_result.cuaca}\n`
+                    ini_txt += `Angin : ${get_result.angin}\n`
+                    ini_txt += `Description : ${get_result.description}\n`
+                    ini_txt += `Kelembapan : ${get_result.kelembapan}\n`
+                    ini_txt += `Suhu : ${get_result.suhu}\n`
+                    ini_txt += `Udara : ${get_result.udara}\n`
+                    ini_txt += `Permukaan laut : ${get_result.permukaan_laut}\n`
+                    await denz.sendMessage(from, { degreesLatitude: get_result.latitude, degreesLongitude: get_result.longitude }, location, { quoted: mek })
+                    reply(ini_txt)
+                    break
+case 'meme':
+reply(mess.wait)
+anu = await fetchJson(`https://api-yuzzu.herokuapp.com/api/darkjokes?apikey=Yuzzu`)
+buff = await getBuffer(anu.result.result)
+gbutsan = [{buttonId:`meme`,buttonText:{displayText:'LANJUT➡️'},type:1}]
+mhan = await denz.prepareMessage(from, buff, image, {thumbnail: buff})
+const buttonMessagessss = {
+imageMessage: mhan.message.imageMessage,
+contentText: `Ngedark Bos`,
+footerText: '*_©Katashi Hana_*',
+buttons: gbutsan,
+headerType: 4
+}
+denz.sendMessage(from, buttonMessagessss, MessageType.buttonsMessage, {
+        thumbnail: fs.readFileSync('./denz.jpg'),
+        caption: 'Tes',
+            quoted: mek})
+            case 'bisakah':
+					bisakah = body.slice(1)
+					const bisa =['Bisa','Tidak Bisa','Coba Ulangi','Ngimpi kah?','yakin bisa?']
+					const keh = bisa[Math.floor(Math.random() * bisa.length)]
+					denz.sendMessage(from, 'Pertanyaan : *'+bisakah+'*\n\nJawaban : '+ keh, text, { quoted: mek })
+					break
+				case 'kapankah':
+					kapankah = body.slice(1)
+					const kapan =['Besok','Lusa','Tadi','4 Hari Lagi','5 Hari Lagi','6 Hari Lagi','1 Minggu Lagi','2 Minggu Lagi','3 Minggu Lagi','1 Bulan Lagi','2 Bulan Lagi','3 Bulan Lagi','4 Bulan Lagi','5 Bulan Lagi','6 Bulan Lagi','1 Tahun Lagi','2 Tahun Lagi','3 Tahun Lagi','4 Tahun Lagi','5 Tahun Lagi','6 Tahun Lagi','1 Abad lagi','3 Hari Lagi','Tidak Akan Pernah']
+					const koh = kapan[Math.floor(Math.random() * kapan.length)]
+					denz.sendMessage(from, 'Pertanyaan : *'+kapankah+'*\n\nJawaban : '+ koh, text, { quoted: mek })
+					break
+         			  case 'apakah':
+					apakah = body.slice(1)
+					const apa =['Iya','Tidak','Bisa Jadi','Coba Ulangi','Tanyakan Ayam']
+					const kah = apa[Math.floor(Math.random() * apa.length)]
+					denz.sendMessage(from, 'Pertanyaan : *'+apakah+'*\n\nJawaban : '+ kah, text, { quoted: mek })
+					break
+				case 'rate':
+					rate = body.slice(1)
+					const ra =['4','9','17','28','34','48','59','62','74','83','97','100','29','94','75','82','41','39']
+					const te = ra[Math.floor(Math.random() * ra.length)]
+					denz.sendMessage(from, 'Pertanyaan : *'+rate+'*\n\nJawaban : '+ te+'%', text, { quoted: mek })
+					break
+case 'ffstalk':
+if (args.length == 0) return reply(`Idnya mana kak?`)
+                    ff_id = args[0]
+                    get_result = await fetchJson(`https://lolhuman.herokuapp.com/api/freefire/${ff_id}?apikey=7ef1e86bd8624c0edd8bd386`)
+                    reply(get_result.result)
+                    break
+case 'quotesyt':
+if (!isRegistered) return sendButMessage (from, daftar1, daftar2, daftar3, { quoted: fkontak})
+                reply(mess.wait)
+                dapuhy = await getBuffer(`https://dapuhy-api.herokuapp.com/api/randomimage/quotesyt?apikey=${dapapi}`)
+                denz.sendMessage(from, dapuhy, image, {quoted: mek})        
+                break    
+                case 'bucinstick':
+                case 'bucinsticker':{
+         
+                    var ano = await fetchText('https://raw.githubusercontent.com/rashidsiregar28/data/main/bucin')
+                    var wifegerak = ano.split('\n')
+                    var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
+                    var isGif = wifegerakx.endsWith('.gif') ? true : false
+                    if (!isGif) {
+                    var ngebuff = await getBuffer(wifegerakx)
+                    var media = getRandom('.png')
+                    fs.writeFileSync(media, ngebuff)
+                    await ffmpeg(`${media}`)
+							.input(media)
+							.on('start', function (cmd) {
+								console.log(`Started : ${cmd}`)
+							})
+							.on('error', function (err) {
+								console.log(`Error : ${err}`)
+								fs.unlinkSync(media)
+								reply(mess.error.api)
+							})
+							.on('end', function () {
+								console.log('Finish')
+								exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
+                                    if (error) return reply(mess.error.api)
+									 denz.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: freply})
+								
+                                    fs.unlinkSync(media)	
+									fs.unlinkSync(`./sticker/${sender}.webp`)	
+								})
+							})
+							.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
+							.toFormat('webp')
+							.save(`./sticker/${sender}.webp`)
+                    } else {
+                     var ngebuff = await getBuffer(wifegerakx)
+                 	let media = `./sticker/${sender}.gif`
+                    fs.writeFileSync(media, ngebuff)
+					reply(mess.wait)
+                        await ffmpeg(`${media}`)
+							.inputFormat(media.split('.')[4])
+							.on('start', function (cmd) {
+								console.log(`Started : ${cmd}`)
+							})
+							.on('error', function (err) {
+								console.log(err)
+								fs.unlinkSync(media)
+								let tipe = media.endsWith('.mp4') ? 'video' : 'gif'
+								reply(mess.error.api)
+							})
+							.on('end', function () {
+								console.log('Finish')
+								exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
+									if (error) return reply(mess.error.api)
+									 denz.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: freply})
+									
+                                    fs.unlinkSync(media)
+									fs.unlinkSync(`./sticker/${sender}.webp`)
+                                })
+							})
+							.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
+							.toFormat('webp')
+							.save(`./sticker/${sender}.webp`)
+                    }
+                    }
+                    break
+case "listonline": 
+        let id = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : m.chat;
+        try {
+          let online = [
+            ...Object.keys(itsmevall.chats.get(id).presences),
+            denz.user.jid,
+          ];
+          denz.reply(
+            m.chat,
+            "┌─〔 Daftar Online 〕\n" +
+              online.map((v) => "├ @" + v.replace(/@.+/, "")).join`\n` +
+              "\n└────",
+            m,
+            {
+              contextInfo: { mentionedJid: online },
+            }
+          );
+         } catch (e) {
+          m.reply("");
+        }
+        break;
+        case "asupan": // by itsmevall
+        sendButMessage(from, `Hai Kak ${pushname}`, `Silahkan pilih Asupannya Kak✨`, [
+          {
+            buttonId: `${prefix}+62`,
+            buttonText: {
+              displayText: `㋛ Asupan +62`,
+            },
+            type: 1,
+          },
+          {
+            buttonId: `${prefix}ghea`,
+            buttonText: {
+              displayText: `🔖 Asupan Ghea`,
+            },
+            type: 1,
+          },
+          {
+            buttonId: `${prefix}asupan2`,
+            buttonText: {
+              displayText: `Next Asupan >`,
+            },
+            type: 1,
+          },
+        ]);
+        break;
+case "asupan2": // by itsmevall
+        sendButMessage(from, `Hai Kak ${pushname}`, `Silahkan pilih Asupannya V.2 kak✨`, [
+          {
+            buttonId: `${prefix}santuy`,
+            buttonText: {
+              displayText: `🔖 Asupan Santuy`,
+            },
+            type: 1,
+          },
+          {
+            buttonId: `${prefix}bocil`,
+            buttonText: {
+              displayText: `🔖 Asupan Bocil`,
+            },
+            type: 1,
+          },
+          {
+            buttonId: `${prefix}asupan3`,
+            buttonText: {
+              displayText: `Next Asupan >`,
+            },
+            type: 1,
+          },
+        ]);
+        break;
+case "asupan3": // by itsmevall
+        sendButMessage(from, `Hai Kak ${pushname}`, `Silahkan pilih Asupannya V.3 kak✨`, [
+          {
+            buttonId: `${prefix}rikagusriani`,
+            buttonText: {
+              displayText: `🔖 Asupan Rikagusriani`,
+            },
+            type: 1,
+          },
+          {
+            buttonId: `${prefix}ukhti`,
+            buttonText: {
+              displayText: `🔖 Asupan Ukhti`,
+            },
+            type: 1,
+          },
+          {
+            buttonId: `${prefix}mygithub`,
+            buttonText: {
+              displayText: `Follow Kak Github Saya😄`,
+            },
+            type: 1,
+          },
+        ]);
+        break;
+        case 'kalkulator2':
+				 var mtk = body.slice(12)
+				 teks = `${mtk} = ${Math_js.evaluate(mtk)}`
+				 reply(teks)
+				 break
+case 'bocil':
+                    get_result = await getBuffer(`https://dapuhy-api.herokuapp.com/api/asupan/asupanbocil?apikey=${dapapi}`)
+                    kodo = `𝗔𝘀𝘂𝗽𝗮𝗻𝗻𝘆𝗮 𝗞𝗮𝗸 シ︎`
+   sendButVideo(from, kodo, `Klik Next Untuk Melanjutkan`, get_result, [                      
+          {
+            buttonId: `${prefix+command}`,
+            buttonText: {
+              displayText: `Next シ︎`,
+            },
+            type: 1,
+          },
+        ]);                 
+                    break    
+case '+62':
+                    get_result = await getBuffer(`https://itsmevall.herokuapp.com/api/asupan?apikey=${valkey}`)
+                    pll = `𝗔𝘀𝘂𝗽𝗮𝗻𝗻𝘆𝗮 𝗞𝗮𝗸 シ︎`
+   sendButVideo(from, pll, `Klik Next Untuk Melanjutkan`, get_result, [                      
+          {
+            buttonId: `${prefix+command}`,
+            buttonText: {
+              displayText: `Next シ︎`,
+            },
+            type: 1,
+          },
+        ]);                 
+                    break    
+case 'santuy':
+                    get_result = await getBuffer(`https://dapuhy-api.herokuapp.com/api/asupan/asupansantuy?apikey=${dapapi}`)
+                    hhh = `𝗔𝘀𝘂𝗽𝗮𝗻𝗻𝘆𝗮 𝗞𝗮𝗸 シ︎`
+   sendButVideo(from, hhh, `Klik Next Untuk Melanjutkan`, get_result, [                      
+          {
+            buttonId: `${prefix+command}`,
+            buttonText: {
+              displayText: `Next シ︎`,
+            },
+            type: 1,
+          },
+        ]);                 
+                    break 
+case 'ukhti':
+                    get_result = await getBuffer(`https://dapuhy-api.herokuapp.com/api/asupan/asupanukhty?apikey=${dapapi}`)
+                    kntl = `𝗔𝘀𝘂𝗽𝗮𝗻𝗻𝘆𝗮 𝗞𝗮𝗸 シ︎`
+   sendButVideo(from, kntl, `Klik Next Untuk Melanjutkan`, get_result, [                      
+          {
+            buttonId: `${prefix+command}`,
+            buttonText: {
+              displayText: `Next シ︎`,
+            },
+            type: 1,
+          },
+        ]);                 
+                    break    
+case 'rikagusriani':
+                    get_result = await getBuffer(`https://dapuhy-api.herokuapp.com/api/asupan/asupanrikagusriani?apikey=${dapapi}`)
+                    yyy = `𝗔𝘀𝘂𝗽𝗮𝗻𝗻𝘆𝗮 𝗞𝗮𝗸 シ︎`
+   sendButVideo(from, yyy, `Klik Next Untuk Melanjutkan`, get_result, [                      
+          {
+            buttonId: `${prefix+command}`,
+            buttonText: {
+              displayText: `Next シ︎`,
+            },
+            type: 1,
+          },
+        ]);                 
+                    break    
+case 'ghea':
+                    get_result = await getBuffer(`https://dapuhy-api.herokuapp.com/api/asupan/asupanghea?apikey=${dapapi}`)
+                    ggg = `𝗔𝘀𝘂𝗽𝗮𝗻𝗻𝘆𝗮 𝗞𝗮𝗸 シ︎`
+   sendButVideo(from, ggg, `Klik Next Untuk Melanjutkan`, get_result, [                      
+          {
+            buttonId: `${prefix+command}`,
+            buttonText: {
+              displayText: `Next シ︎`,
+            },
+            type: 1,
+          },
+        ]);                 
+                    break    
+                    case 'wasted':
+
+  case 'was':
+    
+
+var imgbb = require('imgbb-uploader')
+
+if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+
+  ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: mek
+
+  reply('[❕] Loading')
+
+  owgi = await denz.downloadAndSaveMediaMessage(ger)
+
+  anu = await imgbb("08579d070df9a07cb1c2ee565aece767", owgi)
+
+  teks = `${anu.display_url}`
+
+  ranp = getRandom('.gif')
+
+  rano = getRandom('.webp')
+
+  anu1 = `https://some-random-api.ml/canvas/wasted?avatar=${teks}`
+
+  exec(`wget ${anu1} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+
+fs.unlinkSync(ranp)
+
+if (err) return reply(mess.error.stick)
+
+nobg = fs.readFileSync(rano)
+
+denz.sendMessage(from, nobg, sticker, {
+
+  quoted: mek
+})
+fs.unlinkSync(rano)
+  })
+
+
+} else {
+	
+  reply('Gunakan foto!')
+}
+break
+case 'shrtco':
+				denz.updatePresence(from, Presence.composing) 
+				data = await fetchJson(`http://lolhuman.herokuapp.com/api/shortlink2?url=${args[0]}&apikey=RanddyGanz`)
+				hasil = `link : ${args[0]}\n\nOutput : ${data.result}`
+				reply(hasil)
+				break
+                case 'nangis':
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu = await fetchJson('https://api.shizukaa.xyz/api/bj18?apikey=client633', {method: 'get'})
+					if (anu.error) return reply(anu.error)
+					exec(`wget ${anu.url} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						if (err) return reply(ind.stikga())
+						buffer = fs.readFileSync(rano)
+						denz.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+					break
+case 'wanted':
+	var imgbb = require('imgbb-uploader')
+	if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+	  ted = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: mek
+	  reply(ind.wait())
+	  owgi = await denz.downloadAndSaveMediaMessage(ted)
+	  tels = body.slice(7)
+	  anu = await imgbb("08579d070df9a07cb1c2ee565aece767", owgi)
+	  hehe = await getBuffer(`https://videfikri.com/api/textmaker/wanted/?urlgbr=${anu.display_url}&text1=Dicari&text2=${tels}`)
+	 denz.sendMessage(from, hehe, image, {quoted:mek})
+	} else {
+	  reply('Jangan tambah kan apapun pada command')
+	}
+	break
+case 'covidindo2': 
+					data = await fetchJson(`https://videfikri.com/api/covidindo/`)
+					hasil = `Positif : ${data.result.positif}\nSembuh : ${data.result.sembuh}\nMeninggal : ${data.result.meninggal}\nDirawat : ${data.result.dalam_perawatan}`
+					reply(hasil)
+					break		
+					case 'beritahoax':
+					denz.updatePresence(from, Presence.composing) 
+					data = await fetchJson(`https://docs-jojo.herokuapp.com/api/infohoax`, {method: 'get'})
+					teks = '=================\n'
+					for (let i of data.result) {
+						teks += `*Gambar* : ${i.image}\n*Title* : ${i.title}\n*link* : ${i.link}\n*tag* : ${i.tag}\n=================\n`
+					}
+					reply(teks.trim())
+					break 
+        default:break
 		}
 		if (isTTT && isPlayer2){
 if (budy.startsWith('Y')){
