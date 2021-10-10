@@ -5182,75 +5182,26 @@ if (args.length == 0) return reply(`Idnya mana kak?`)
 case 'quotesyt':
 if (!isRegistered) return sendButMessage (from, daftar1, daftar2, daftar3, { quoted: fkontak})
                 reply(mess.wait)
-                dapuhy = await getBuffer(`https://dapuhy-api.herokuapp.com/api/randomimage/quotesyt?apikey=${dapapi}`)
+                dapuhy = await getBuffer(`https://dapuhy-api.herokuapp.com/api/randomimage/quotesyt?apikey=anakasu`)
                 denz.sendMessage(from, dapuhy, image, {quoted: mek})        
-                break    
-                case 'bucinstick':
-                case 'bucinsticker':{
-         
-                    var ano = await fetchText('https://raw.githubusercontent.com/rashidsiregar28/data/main/bucin')
-                    var wifegerak = ano.split('\n')
-                    var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
-                    var isGif = wifegerakx.endsWith('.gif') ? true : false
-                    if (!isGif) {
-                    var ngebuff = await getBuffer(wifegerakx)
-                    var media = getRandom('.png')
-                    fs.writeFileSync(media, ngebuff)
-                    await ffmpeg(`${media}`)
-							.input(media)
-							.on('start', function (cmd) {
-								console.log(`Started : ${cmd}`)
-							})
-							.on('error', function (err) {
-								console.log(`Error : ${err}`)
-								fs.unlinkSync(media)
-								reply(mess.error.api)
-							})
-							.on('end', function () {
-								console.log('Finish')
-								exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
-                                    if (error) return reply(mess.error.api)
-									 denz.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: freply})
-								
-                                    fs.unlinkSync(media)	
-									fs.unlinkSync(`./sticker/${sender}.webp`)	
-								})
-							})
-							.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
-							.toFormat('webp')
-							.save(`./sticker/${sender}.webp`)
-                    } else {
-                     var ngebuff = await getBuffer(wifegerakx)
-                 	let media = `./sticker/${sender}.gif`
-                    fs.writeFileSync(media, ngebuff)
-					reply(mess.wait)
-                        await ffmpeg(`${media}`)
-							.inputFormat(media.split('.')[4])
-							.on('start', function (cmd) {
-								console.log(`Started : ${cmd}`)
-							})
-							.on('error', function (err) {
-								console.log(err)
-								fs.unlinkSync(media)
-								let tipe = media.endsWith('.mp4') ? 'video' : 'gif'
-								reply(mess.error.api)
-							})
-							.on('end', function () {
-								console.log('Finish')
-								exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
-									if (error) return reply(mess.error.api)
-									 denz.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: freply})
-									
-                                    fs.unlinkSync(media)
-									fs.unlinkSync(`./sticker/${sender}.webp`)
-                                })
-							})
-							.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
-							.toFormat('webp')
-							.save(`./sticker/${sender}.webp`)
-                    }
-                    }
-                    break
+                break   
+                case 'covid':
+                   denz.updatePresence(from, Presence.composing) 
+                   data = await fetchJson(`https://gratisancok.herokuapp.com/api/covidindo?apikey=ZailaniGans`)
+                   if (data.result.attributes) reply(data.result.attributes)
+                   hasil = `Provinsi : ${data.result.attributes.Provinsi}\n\nTotal positif : ${data.result.attributes.Kasus_Posi}\nTotal Sembuh : ${data.result.attributes.Kasus_Semb}\nTotal Meninggal : ${data.result.attributes.Kasus_Meni}`
+                   reply(hasil)
+                   break
+case 'asupan9':
+		anu = await fetchJson(`https://gratisancok.herokuapp.com/api/asupan?apikey=ZailaniGans`)
+		asup = await getBuffer(anu.result.url)
+		denz.sendMessage(from, asup, video, {mimetype: 'video/mp4', filename: `asupan_bangsa.mp4`, quoted: mek, caption: 'Asupannya Tuan'})
+		break
+case 'darkjokes2':
+		                        		anu = await fetchJson(`https://gratisancok.herokuapp.com/api/drakjokes?apikey=ZailaniGans`)
+		                        		buffer = await getBuffer(anu.result.url)
+		                        		denz.sendMessage(from, buffer, image, {quoted: mek, caption: '*DARK JOKES*'})
+		                        		break
 case "listonline": 
         let id = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : m.chat;
         try {
@@ -5353,7 +5304,7 @@ case "asupan3": // by itsmevall
 				 reply(teks)
 				 break
 case 'bocil':
-                    get_result = await getBuffer(`https://dapuhy-api.herokuapp.com/api/asupan/asupanbocil?apikey=${dapapi}`)
+                    get_result = await getBuffer(`https://dapuhy-api.herokuapp.com/api/asupan/asupanbocil?apikey=anakasu`)
                     kodo = `𝗔𝘀𝘂𝗽𝗮𝗻𝗻𝘆𝗮 𝗞𝗮𝗸 シ︎`
    sendButVideo(from, kodo, `Klik Next Untuk Melanjutkan`, get_result, [                      
           {
@@ -5366,7 +5317,7 @@ case 'bocil':
         ]);                 
                     break    
 case '+62':
-                    get_result = await getBuffer(`https://itsmevall.herokuapp.com/api/asupan?apikey=${valkey}`)
+                    get_result = await getBuffer(`https://itsmevall.herokuapp.com/api/asupan?apikey=rivalgans`)
                     pll = `𝗔𝘀𝘂𝗽𝗮𝗻𝗻𝘆𝗮 𝗞𝗮𝗸 シ︎`
    sendButVideo(from, pll, `Klik Next Untuk Melanjutkan`, get_result, [                      
           {
@@ -5379,7 +5330,7 @@ case '+62':
         ]);                 
                     break    
 case 'santuy':
-                    get_result = await getBuffer(`https://dapuhy-api.herokuapp.com/api/asupan/asupansantuy?apikey=${dapapi}`)
+                    get_result = await getBuffer(`https://dapuhy-api.herokuapp.com/api/asupan/asupansantuy?apikey=anakasu`)
                     hhh = `𝗔𝘀𝘂𝗽𝗮𝗻𝗻𝘆𝗮 𝗞𝗮𝗸 シ︎`
    sendButVideo(from, hhh, `Klik Next Untuk Melanjutkan`, get_result, [                      
           {
@@ -5392,7 +5343,7 @@ case 'santuy':
         ]);                 
                     break 
 case 'ukhti':
-                    get_result = await getBuffer(`https://dapuhy-api.herokuapp.com/api/asupan/asupanukhty?apikey=${dapapi}`)
+                    get_result = await getBuffer(`https://dapuhy-api.herokuapp.com/api/asupan/asupanukhty?apikey=anakasu`)
                     kntl = `𝗔𝘀𝘂𝗽𝗮𝗻𝗻𝘆𝗮 𝗞𝗮𝗸 シ︎`
    sendButVideo(from, kntl, `Klik Next Untuk Melanjutkan`, get_result, [                      
           {
@@ -5405,7 +5356,7 @@ case 'ukhti':
         ]);                 
                     break    
 case 'rikagusriani':
-                    get_result = await getBuffer(`https://dapuhy-api.herokuapp.com/api/asupan/asupanrikagusriani?apikey=${dapapi}`)
+                    get_result = await getBuffer(`https://dapuhy-api.herokuapp.com/api/asupan/asupanrikagusriani?apikey=anakasu`)
                     yyy = `𝗔𝘀𝘂𝗽𝗮𝗻𝗻𝘆𝗮 𝗞𝗮𝗸 シ︎`
    sendButVideo(from, yyy, `Klik Next Untuk Melanjutkan`, get_result, [                      
           {
@@ -5418,7 +5369,7 @@ case 'rikagusriani':
         ]);                 
                     break    
 case 'ghea':
-                    get_result = await getBuffer(`https://dapuhy-api.herokuapp.com/api/asupan/asupanghea?apikey=${dapapi}`)
+                    get_result = await getBuffer(`https://dapuhy-api.herokuapp.com/api/asupan/asupanghea?apikey=anakasu`)
                     ggg = `𝗔𝘀𝘂𝗽𝗮𝗻𝗻𝘆𝗮 𝗞𝗮𝗸 シ︎`
    sendButVideo(from, ggg, `Klik Next Untuk Melanjutkan`, get_result, [                      
           {
@@ -5478,7 +5429,7 @@ fs.unlinkSync(rano)
 break
 case 'shrtco':
 				denz.updatePresence(from, Presence.composing) 
-				data = await fetchJson(`http://lolhuman.herokuapp.com/api/shortlink2?url=${args[0]}&apikey=RanddyGanz`)
+				data = await fetchJson(`http://lolhuman.herokuapp.com/api/shortlink2?url=${args[0]}&apikey=7ef1e86bd8624c0edd8bd386`)
 				hasil = `link : ${args[0]}\n\nOutput : ${data.result}`
 				reply(hasil)
 				break
